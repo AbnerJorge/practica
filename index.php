@@ -2,16 +2,14 @@ html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Customer Catalog</title>
+  <title>Practica de GCP</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
   <div class = "container">
     <div class="jumbotron">
       <h1 class="display-4">Desplegarlo en GCP</h1>
-      <p class="lead">Datos personales de Abner Gonzales Corzo</p>
-      <hr class="my-4">
-      <p>Datos personales de Abner Gonzales Corzo</p>
+      <p class="lead" color="red">Datos personales de Abner Gonzales Corzo</p>
     </div>
     <table class="table table-striped table-responsive">
       <thead>
