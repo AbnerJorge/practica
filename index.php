@@ -29,7 +29,7 @@ html>
 
         $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "practica");
 
-        $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono from paciente;";
+        $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefonos from paciente;";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
          if (!$resultado) {
