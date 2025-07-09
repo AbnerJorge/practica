@@ -29,7 +29,7 @@ html>
 
         $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "practica");
 
-        $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono from paciente";
+        $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono from paciente;";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
          while ($fila = mysqli_fetch_object($resultado)) {
@@ -47,7 +47,6 @@ html>
                   <td>{$tel2}</td>
                 </tr>";
         }
-        mysqli_close($conexion);
        ?>
      </tbody>
    </table>
