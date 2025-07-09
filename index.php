@@ -9,7 +9,7 @@ html>
   <div class = "container">
     <div class="jumbotron">
       <h1 class="display-4">Desplegarlo en GCP</h1>
-      <p class="lead" color="red">Datos personales de Abner Gonzales Corzo</p>
+      <p class="lead text-danger">Datos personales de Abner Gonzales Corzo</p>
     </div>
     <table class="table table-striped table-responsive">
       <thead>
@@ -32,17 +32,22 @@ html>
         $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono, telefono from paciente";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
-        while ($fila = mysqli_fetch_object($resultado)) {
-         echo "<tr><td> " .$fila->id . 
-         "</td><td>" . $fila->nombre .
-         "</td><td>" . $fila->apellido .
-         "</td><td>" . $fila->fechaNac .
-         "</td><td>" . $fila->edad .
-         "</td><td>" . $fila->telefonos .
-         "</td><td>" . $fila->telefonos .
-         
-         "</td></tr>";
-       }
+         while ($fila = mysqli_fetch_object($resultado)) {
+          $telefonos = explode(',', $fila->telefono);
+          $tel1 = isset($telefonos[0]) ? $telefonos[0] : '';
+          $tel2 = isset($telefonos[1]) ? $telefonos[1] : '';
+
+          echo "<tr>
+                  <td>{$fila->id}</td>
+                  <td>{$fila->nombre}</td>
+                  <td>{$fila->apellido}</td>
+                  <td>{$fila->fechaNac}</td>
+                  <td>{$fila->edad}</td>
+                  <td>{$tel1}</td>
+                  <td>{$tel2}</td>
+                </tr>";
+        }
+        mysqli_close($conexion);
        ?>
      </tbody>
    </table>
