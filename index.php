@@ -21,8 +21,9 @@ html>
           <th>Apellido</th>
           <th>Fecha Nacimiento</th>
           <th>Edad</th>
-          <th>Telefonos</th>
-          <th>Enfermedad</th>
+          <th>Telefono1</th>
+          <th>Telefono2</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -30,7 +31,7 @@ html>
 
         $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "practica");
 
-        $cadenaSQL = "select p.id,p.nombre,p.apellido,p.fechaNac,TIMESTAMPDIFF(YEAR,p.fechaNac, CURDATE()) AS edad,p.telefonos,e.nombre as enfermedad from paciente p,enfermedad e where p.id=e.id_paciente";
+        $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono, telefono from paciente";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
         while ($fila = mysqli_fetch_object($resultado)) {
@@ -40,7 +41,8 @@ html>
          "</td><td>" . $fila->fechaNac .
          "</td><td>" . $fila->edad .
          "</td><td>" . $fila->telefonos .
-         "</td><td>" . $fila->enfermedad .
+         "</td><td>" . $fila->telefonos .
+         
          "</td></tr>";
        }
        ?>
