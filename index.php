@@ -32,12 +32,12 @@ html>
         $cadenaSQL = "select id, nombre, apellido, fechaNac, TIMESTAMPDIFF(YEAR,fechaNac, CURDATE()) AS edad, telefono from paciente;";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
-        if (!$resultado) {
+         if (!$resultado) {
           die("<tr><td colspan='7'>Error en la consulta: " . mysqli_error($conexion) . "</td></tr>");
         }
 
         while ($fila = mysqli_fetch_object($resultado)) {
-          // Dividir los teléfonos por coma
+          
           $telefonos = explode(',', $fila->telefono);
           $tel1 = isset($telefonos[0]) ? trim($telefonos[0]) : '';
           $tel2 = isset($telefonos[1]) ? trim($telefonos[1]) : '';
